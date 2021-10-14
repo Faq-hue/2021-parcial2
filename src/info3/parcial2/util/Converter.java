@@ -1,24 +1,29 @@
 package info3.parcial2.util;
 
 import info3.parcial2.Email;
-
+/**
+ * Clase para convertir un string a un objeto de tipo Email
+ */
 public class Converter {
+  /**
+   * Convierte una cadena de texto a un objeto de tipo Email
+   * La cadena de texto tiene que estar ordenada de la siguiente forma:
+   *  1-date
+   *  2-from
+   *  3-to
+   *  4-subject
+   *  5-contenido
+   * 
+   * @param unConverted cadena de texto a convertir
+   * @return objeto Email construido
+   */
   public static Email converted(String unConverted) {
     Email converted = new Email();
-    // Recuperamos Fecha unicamente
-    // System.out.println(unConverted.substring(6,6+16));
 
-    /*
-     * Hace lo mismo que arriba pero sin ser hardcodeado
-     * System.out.println(unConverted.indexOf(" "));
-     * System.out.println(unConverted.indexOf("\n"));
-     * System.out.println(unConverted.substring(unConverted.indexOf(" ")+1,
-     * unConverted.indexOf("\n")));
-     */
     int prop = 0;
 
-    while (converted.getContent() == null){
-      
+    while (converted.getContent() == null) {
+
       if (converted.getSubject() == null) {
         int initialIndex = unConverted.indexOf(" ") + 1;
         int finalIndex = unConverted.indexOf("\n");
@@ -43,12 +48,10 @@ public class Converter {
             break;
         }
 
-        //System.out.println(aux);
+        // System.out.println(aux);
         unConverted = unConverted.substring(finalIndex + 1);
-      }
-      else
+      } else
         converted.setContent(unConverted);
-      
 
     }
 
