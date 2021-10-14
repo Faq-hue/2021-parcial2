@@ -5,12 +5,12 @@ package info3.parcial2;
  */
 public class Email {
   
-  public long id;
-  public String from; // Remitente del mail
-  public String to; // destinatario del mail
-  public String date; // Fecha de envio
-  public String subject; // Asunto del mail
-  public String content; // Contenido del mail.
+  private long id;
+  private String from; // Remitente del mail
+  private String to; // destinatario del mail
+  private String date; // Fecha de envio
+  private String subject; // Asunto del mail
+  private String content; // Contenido del mail.
 
   public long getId() {
     return id;
