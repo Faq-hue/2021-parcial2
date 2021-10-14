@@ -1,27 +1,27 @@
 package info3.parcial2.util;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
+import java.io.*;
 
 import info3.parcial2.Email;
 
 public class FileReader {
-  public static Email[] fileReader(String path) throws FileNotFoundException {
-    Scanner reed = new Scanner(new File(path));
+  public static Email[] fileReader(String path) throws IOException {
+    FileInputStream fstream = new FileInputStream(path);
+    BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
+
+    String strLine;
     String mail = "";
+    // Read File Line By Line
+    while ((strLine = br.readLine()) != null) {
+      mail += (!strLine.equals("-.-.-:-.-.-") ? strLine + "\n" : "");
+      if (strLine.equals("-.-.-:-.-.-")) {
 
-    while (reed.hasNextLine()) {
-
-      mail += reed.nextLine();
-
-      System.out.println(mail);
-      if (reed.nextLine().equals("-.-.-:-.-.-")) {
-        //System.out.println(!mail.equals("") ? mail : "no hay nada");
+        System.out.println(mail == "" ? "nada" : mail);
+        mail = "";
       }
-
     }
-    reed.close();
+    // Close the input stream
+    fstream.close();
     return null;
   }
 }
