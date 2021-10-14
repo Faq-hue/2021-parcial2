@@ -6,9 +6,9 @@ package info3.parcial2;
 class Email {
 
     public long id;
-    public String from;
-    public String to;
-    public String date;
-    public String subject;
-    public String content;
+    public String from;    // Remitente del mail
+    public String to;      // destinatario del mail
+    public String date;    // Fecha de envio
+    public String subject; // Asunto del mail
+    public String content; // Contenido del mail.
 }
