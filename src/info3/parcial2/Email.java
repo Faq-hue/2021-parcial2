@@ -3,7 +3,7 @@ package info3.parcial2;
 /**
  * Clase con los datos de un email. Puede tener mas propiedades o metodos
  */
-class Email {
+public class Email {
 
     public long id;
     public String from;    // Remitente del mail
