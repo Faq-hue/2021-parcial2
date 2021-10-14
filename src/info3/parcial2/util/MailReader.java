@@ -6,16 +6,28 @@ import java.util.List;
 
 import info3.parcial2.Email;
 
-public class FileReader {
+/**
+ * Clase para leer los archivos donde se encuentran los mails
+ */
+public class MailReader {
+  /**
+   * Metodo que lee los arichivos donde se encuentran los mails
+   * 
+   * @param path
+   * @return retorna una estructura de datos en la cual se encuentran contenidos los mails
+   * @throws IOException
+   */
   public static List<Email> fileReader(String path) throws IOException {
     FileInputStream fstream = new FileInputStream(path);
     BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
 
     String strLine;
     String mail = "";
+
+    // TODO cambiar el array list por la estructura de datos correspondiente
     List<Email> listMail = new ArrayList<>();
 
-    // Read File Line By Line
+    
     while ((strLine = br.readLine()) != null) {
       
       mail += (!strLine.equals("-.-.-:-.-.-") ? strLine + "\n" : "");
@@ -26,7 +38,7 @@ public class FileReader {
       }
       
     }
-    // Close the input stream
+    
     fstream.close();
     return listMail;
   }
