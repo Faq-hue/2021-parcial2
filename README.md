@@ -22,6 +22,7 @@ El programa deberá tener las siguientes funcionalidades:
 * Mostrar mails ordenados por remitente
 * Buscar mails por remitente
 * Buscar mails por palabras del texto o asunto
+* Leer mail
 
 El docente le proveerá una plantilla del proyecto a los alumnos con la clase 
 _“MailManager”_. Los alumnos deberán implementar la funcionalidad de la clase y 

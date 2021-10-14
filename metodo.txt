@@ -1,0 +1,20 @@
+Angelo 1, Facundo 2, Karen 3
+
+Agregar mails al gestor                       3
+
+
+-- ORDENAR MAILS POR ALGUN CRITERIO
+Mostrar mails ordenados por fecha             3
+Mostrar mails ordenados por remitente         2
+
+
+-- BUSQUEDAS Y HACER ALGO
+Buscar mails por remitente                    1
+Buscar mails por palabras del texto o asunto  2
+Leer mail / busqueda por id                   1   
+Borrar mails del gestor                       2
+
+
+-- ORDENAR Y BUSCAR
+  - Permitir filtrar mails desde una fecha en adelante 3
+  - Permitir filtrar mails hasta una fecha              1
