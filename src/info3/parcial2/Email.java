@@ -5,13 +5,17 @@ package info3.parcial2;
  */
 public class Email implements Comparable<Email> {
 
-  private long id;
+  private long id = 46;
   private String from; // Remitente del mail
   private String to; // destinatario del mail
   private String date; // Fecha de envio
   private String subject; // Asunto del mail
   private String content; // Contenido del mail.
-
+/*
+  public Email(){
+    this.setId((long)Math.random()*5);
+  }
+*/
   public long getId() {
     return id;
   }
@@ -68,7 +72,7 @@ public class Email implements Comparable<Email> {
 
   @Override
   public int compareTo(Email arg0) {
-    return this.getDate().compareTo(arg0.getDate());
+    return this.getId() > arg0.getId() ? 1 : this.getId() < arg0.getId() ? -1 : 0;
   }
 
 }

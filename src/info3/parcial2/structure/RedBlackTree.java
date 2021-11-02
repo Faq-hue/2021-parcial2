@@ -84,10 +84,45 @@ public class RedBlackTree<AnyType extends Comparable<? super AnyType>> {
    * Remove from the tree.
    * 
    * @param x the item to remove.
-   * @throws UnsupportedOperationException if called.
+   * @throws Exception
    */
-  public void remove(AnyType x) {
-    throw new UnsupportedOperationException();
+  public void remove(AnyType x) throws Exception {
+    header = remove(x,header);
+  }
+
+  private RedBlackNode<AnyType> remove(AnyType x, RedBlackNode<AnyType> t) throws Exception {
+    if (t == nullNode)
+      return t;
+
+    int compareResult = x.compareTo(t.element);
+
+    if(compareResult < 0)
+      t.left = remove(x, t.left);
+    else if(compareResult > 0)
+      t.right = remove(x, t.right);
+    else if (t.left != null && t.right != null) // Two children
+    {
+      t.element = findMin(t.right).element;
+      t.right = remove(t.element, t.right);
+    } else
+      t = (t.left != null) ? t.left : t.right;
+
+    if (current.left.color == RED && current.right.color == RED)
+      handleReorient(t.element);
+
+    return t;
+  }
+
+  private RedBlackNode<AnyType> findMin(RedBlackNode<AnyType> x) {
+    if (x.right == null && x.left == null)
+      return null;
+
+    RedBlackNode<AnyType> itr = x.right;
+
+    while (itr.left != nullNode)
+      itr = itr.left;
+
+    return itr;
   }
 
   /**

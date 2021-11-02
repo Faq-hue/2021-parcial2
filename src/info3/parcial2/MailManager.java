@@ -12,14 +12,10 @@ public class MailManager {
    * @param path
    * @throws Exception
    */
-  private MailManager(String path) throws Exception{
+  MailManager(String path) throws Exception{
     this.tree = MailReader.fileReader(path);
   }
   
-
-  public void readMail() {
-    // TODO
-  }
 
   /**
    * Agrega un mail al gestor
@@ -34,9 +30,12 @@ public class MailManager {
    * Elimina un mail del gestor
    *
    * @param id identificador del mail a borrar
+   * @throws Exception
    */
-  public void deleteMail(long id) {
-    //OP en el arbol
+  public void deleteMail(long id) throws Exception {
+    Email aux = new Email();
+    aux.setId(id);
+    tree.remove(aux);
   }
 
   /**
@@ -57,6 +56,7 @@ public class MailManager {
    * @return lista de mails ord-enados
    */
   public Email[] getSortedByDate(String desde, String hasta) {
+
     return new Email[0];
   }
 
@@ -76,6 +76,9 @@ public class MailManager {
    * @return lista de mails del remitente
    */
   public Email[] getByFrom(String from) {
+    
+    
+
     return new Email[0];
   }
 
