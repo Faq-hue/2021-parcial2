@@ -3,7 +3,7 @@ package info3.parcial2;
 /**
  * Clase con los datos de un email. Puede tener mas propiedades o metodos
  */
-public class Email {
+public class Email implements Comparable<Email> {
 
   private long id;
   private String from; // Remitente del mail
@@ -64,6 +64,11 @@ public class Email {
   public String toString() {
     return "Email [content=" + content + "\n, date=" + date + "\n, from=" + from + "\n, subject=" + subject + "\n, to="
         + to + "]";
+  }
+
+  @Override
+  public int compareTo(Email arg0) {
+    return this.getDate().compareTo(arg0.getDate());
   }
 
 }

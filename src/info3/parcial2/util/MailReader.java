@@ -1,10 +1,9 @@
 package info3.parcial2.util;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
 
 import info3.parcial2.Email;
+import info3.parcial2.structure.RedBlackTree;
 
 /**
  * Clase para leer los archivos donde se encuentran los mails
@@ -15,31 +14,29 @@ public class MailReader {
    * 
    * @param path
    * @return retorna una estructura de datos en la cual se encuentran contenidos los mails
-   * @throws IOException
+   * @throws Exception
    */
-  public static List<Email> fileReader(String path) throws IOException {
+  public static RedBlackTree<Email> fileReader(String path) throws Exception {
     FileInputStream fstream = new FileInputStream(path);
     BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
 
     String strLine;
     String mail = "";
 
-    // TODO cambiar el array list por la estructura de datos correspondiente
-    List<Email> listMail = new ArrayList<>();
-
+    RedBlackTree<Email> treeMail = new RedBlackTree<>();
     
     while ((strLine = br.readLine()) != null) {
       
       mail += (!strLine.equals("-.-.-:-.-.-") ? strLine + "\n" : "");
       
       if (strLine.equals("-.-.-:-.-.-") && !mail.equals("")) {
-        listMail.add(Converter.converted(mail));
+        treeMail.insert(Converter.converted(mail));
         mail = "";
       }
       
     }
     
     fstream.close();
-    return listMail;
+    return treeMail;
   }
 }

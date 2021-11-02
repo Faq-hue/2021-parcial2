@@ -1,8 +1,15 @@
 package info3.parcial2;
 
+import info3.parcial2.structure.RedBlackTree;
+import info3.parcial2.util.MailReader;
+
 public class MailManager {
+  RedBlackTree<Email> tree;
+
+  private MailManager(String path) throws Exception{
+    this.tree = MailReader.fileReader(path);
+  }
   
-  // 
 
   public void readMail() {
     // TODO
