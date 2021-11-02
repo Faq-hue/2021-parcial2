@@ -1,9 +1,8 @@
 package info3.parcial2;
 
-import java.util.Date;
-
 public class MailManager {
   
+  // 
 
   public void readMail() {
     // TODO
@@ -15,7 +14,7 @@ public class MailManager {
    * @param m mail a agregar
    */
   public void addMail(Email m) {
-
+    //OP en el arbol
   }
 
   /**
@@ -24,7 +23,7 @@ public class MailManager {
    * @param id identificador del mail a borrar
    */
   public void deleteMail(long id) {
-
+    //OP en el arbol
   }
 
   /**

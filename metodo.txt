@@ -17,4 +17,4 @@ Borrar mails del gestor                       2
 
 -- ORDENAR Y BUSCAR
   - Permitir filtrar mails desde una fecha en adelante 3
-  - Permitir filtrar mails hasta una fecha              1
+  - Permitir filtrar mails hasta una fecha             1
