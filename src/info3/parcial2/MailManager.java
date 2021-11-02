@@ -6,6 +6,12 @@ import info3.parcial2.util.MailReader;
 public class MailManager {
   RedBlackTree<Email> tree;
 
+  /**
+   * Constructor de la clase la cual necesita el la ruta
+   * hacia el archivo que contenga a los Mails
+   * @param path
+   * @throws Exception
+   */
   private MailManager(String path) throws Exception{
     this.tree = MailReader.fileReader(path);
   }
