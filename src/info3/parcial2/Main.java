@@ -1,10 +1,22 @@
 package info3.parcial2;
 
+import info3.parcial2.structure.AvlTree;
+
 public class Main {
 
   public static void main(String[] args) {
+    
+    // Test N3
+
+    AvlTree<Integer> tree = new AvlTree<>();
+    
+    tree.insert(2);
+    tree.print();
+    tree.remove(2);
+    tree.print();  
+    
     // Test N2
-    MailManager mn = new MailManager("src/info3/parcial2/mails/mails-2-alt.txt");
+    //MailManager mn = new MailManager("src/info3/parcial2/mails/mails-2-alt.txt");
       
 
 

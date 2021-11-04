@@ -38,10 +38,8 @@ public class MailManager {
    * @throws Exception
    */
   public void deleteMail(long id) throws Exception {
-    Email aux = new Email();
-    // TODO meter mas cosas, explicito
-    aux.setId(id);
-    //tree.remove(aux);
+    treeId.remove(new Pair(id, null));
+
   }
 
   /**
