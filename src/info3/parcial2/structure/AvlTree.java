@@ -192,7 +192,7 @@ public class AvlTree<AnyType extends Comparable<? super AnyType>> {
         else if (compareResult > 0)
             t.right = insert(x, t.right);
         else
-            ;  // Duplicate; do nothing
+            return t;
         return balance(t);
     }
 

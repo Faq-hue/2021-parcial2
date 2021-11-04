@@ -1,3 +1,5 @@
+package info3.parcial2.structure;
+
 public class Pair<K extends Comparable<K>, T> implements Comparable<Pair<K,T>> {
 
     K clave;
