@@ -7,7 +7,12 @@ import info3.parcial2.structure.AvlTree;
 public class Main {
 
   public static void main(String[] args) {
-    
+    // Test N2
+    MailManager mn = new MailManager("src/info3/parcial2/mails/mails-2-alt.txt");
+      
+
+
+
     /*  test N1
      AvlTree<Integer> tree = new AvlTree<Integer>();
        try {

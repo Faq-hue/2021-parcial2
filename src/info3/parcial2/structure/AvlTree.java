@@ -30,12 +30,13 @@ public class AvlTree<AnyType extends Comparable<? super AnyType>> {
     }
 
     /**
-     * Insert into the tree; duplicates are ignored.
+     * Insert into the tree; duplicates are retorned.
      *
      * @param x the item to insert.
      */
-    public void insert(AnyType x) {
+    public AnyType insert(AnyType x) {
         root = insert(x, root);
+        return root.element;
     }
 
     /**
@@ -192,7 +193,7 @@ public class AvlTree<AnyType extends Comparable<? super AnyType>> {
         else if (compareResult > 0)
             t.right = insert(x, t.right);
         else
-            return t;
+            ;  // Duplicate; do nothing
         return balance(t);
     }
 

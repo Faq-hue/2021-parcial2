@@ -1,12 +1,13 @@
 package info3.parcial2;
 
 import info3.parcial2.structure.AvlTree;
+import info3.parcial2.structure.LinkedList;
 import info3.parcial2.structure.Pair;
 import info3.parcial2.util.MailReader;
 
 public class MailManager {
-  AvlTree<Pair<String, Email>> treeDate;
-  AvlTree<Pair<String, Email>> treeFrom;
+  AvlTree<Pair<String, LinkedList<Email>>> treeDate;
+  AvlTree<Pair<String, LinkedList<Email>>> treeFrom;
   AvlTree<Pair<Long, Email>> treeId;
 
   /**
@@ -16,7 +17,7 @@ public class MailManager {
    * @param path
    * @throws Exception
    */
-  MailManager(String path) throws Exception {
+  MailManager(String path) {
     MailReader.fileReader(path, treeId, treeDate, treeFrom);
   }
 
@@ -27,7 +28,7 @@ public class MailManager {
    * @throws Exception
    */
   public void addMail(Email m) throws Exception {
-    tree.insert(m);
+    //tree.insert(m);
   }
 
   /**
@@ -40,7 +41,7 @@ public class MailManager {
     Email aux = new Email();
     // TODO meter mas cosas, explicito
     aux.setId(id);
-    tree.remove(aux);
+    //tree.remove(aux);
   }
 
   /**

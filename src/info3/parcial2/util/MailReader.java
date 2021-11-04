@@ -5,6 +5,7 @@ import java.io.*;
 import info3.parcial2.Email;
 import info3.parcial2.structure.AvlTree;
 import info3.parcial2.structure.Pair;
+import info3.parcial2.structure.LinkedList;
 
 /**
  * Clase para leer los archivos donde se encuentran los mails
@@ -18,41 +19,34 @@ public class MailReader {
    *         los mails
    * @throws Exception
    */
-  public static AvlTree<Email> fileReader(String path, AvlTree<Pair<Long, Email>> treeId,
-      AvlTree<Pair<String, Email>>... trees) throws Exception {
-    FileInputStream fstream = new FileInputStream(path);
-    BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
+  public static void fileReader(String path, AvlTree<Pair<Long, Email>> treeId,
+      AvlTree<Pair<String, LinkedList<Email>>>... trees) {
+    try {
 
-    String strLine;
-    String mail = "";
-    long id = 0;
+      FileInputStream fstream;
+      fstream = new FileInputStream(path);
+      BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
 
-    AvlTree<Email> treeMail = new AvlTree<>();
+      String strLine;
+      String mail = "";
+      long id = 0;
 
-    while ((strLine = br.readLine()) != null) {
+      while ((strLine = br.readLine()) != null) {
 
-      mail += (!strLine.equals("-.-.-:-.-.-") ? strLine + "\n" : "");
+        mail += (!strLine.equals("-.-.-:-.-.-") ? strLine + "\n" : "");
 
-      if (strLine.equals("-.-.-:-.-.-") && !mail.equals("")) {
-        Email tmp = Converter.converted(mail);
-        tmp.setId(++id);
-
-        // generacion de pares
-        Pair<String, Email> pairDate = new Pair<>(tmp.getDate(), tmp);
-        Pair<String, Email> pairFrom = new Pair<>(tmp.getFrom(), tmp);
-        Pair<Long, Email> pairId = new Pair<>(tmp.getId(), tmp);
-
-        // insercion de pares en los arboles
-        trees[0].insert(pairDate);
-        trees[1].insert(pairFrom);
-        treeId.insert(pairId);
-
-        mail = "";
+        if (strLine.equals("-.-.-:-.-.-") && !mail.equals("")) {
+          Email email = Converter.converted(mail);
+          email.setId(++id);
+          Insert.insert(email, treeId, trees);
+          mail = "";
+        }
       }
 
+      fstream.close();
+    } catch (Exception e) {
+      e.printStackTrace();
     }
 
-    fstream.close();
-    return treeMail;
   }
 }
