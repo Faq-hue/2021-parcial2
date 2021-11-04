@@ -1,21 +1,24 @@
 package info3.parcial2;
 
 import info3.parcial2.structure.AvlTree;
+import info3.parcial2.structure.Pair;
 import info3.parcial2.util.MailReader;
 
 public class MailManager {
-  AvlTree<Email> tree;
+  AvlTree<Pair<String, Email>> treeDate;
+  AvlTree<Pair<String, Email>> treeFrom;
+  AvlTree<Pair<Long, Email>> treeId;
 
   /**
-   * Constructor de la clase la cual necesita el la ruta
-   * hacia el archivo que contenga a los Mails
+   * Constructor de la clase la cual necesita el la ruta hacia el archivo que
+   * contenga a los Mails
+   * 
    * @param path
    * @throws Exception
    */
-  MailManager(String path) throws Exception{
-    this.tree = MailReader.fileReader(path);
+  MailManager(String path) throws Exception {
+    MailReader.fileReader(path, treeId, treeDate, treeFrom);
   }
-  
 
   /**
    * Agrega un mail al gestor
@@ -48,7 +51,7 @@ public class MailManager {
   public Email[] getSortedByDate() {
     return new Email[0];
   }
-  
+
   /**
    * Devuelve una lista de mails ordenados desde una fecha en adelante
    *
@@ -57,7 +60,7 @@ public class MailManager {
   public Email[] getSortedByIniDate(String desde) {
     return new Email[0];
   }
-  
+
   /**
    * Devuelve una lista de mails ordenados hasta una fecha
    *
@@ -96,8 +99,6 @@ public class MailManager {
    * @return lista de mails del remitente
    */
   public Email[] getByFrom(String from) {
-    
-    
 
     return new Email[0];
   }
@@ -110,13 +111,7 @@ public class MailManager {
    * @return lista de mails que contienen dicha/s palabra/s
    */
   public Email[] getByQuery(String query) {
-    Email aux = new Email();
-    aux.setSubject(query);
-    aux.setDate(query);
-    aux.setFrom(query);
-    aux.setTo(query);
 
-    tree.find(aux);
     return new Email[0];
   }
 }
