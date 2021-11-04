@@ -6,9 +6,9 @@ import info3.parcial2.structure.Pair;
 import info3.parcial2.util.MailReader;
 
 public class MailManager {
-  AvlTree<Pair<String, LinkedList<Email>>> treeDate;
-  AvlTree<Pair<String, LinkedList<Email>>> treeFrom;
-  AvlTree<Pair<Long, Email>> treeId;
+  AvlTree<Pair<String, LinkedList<Email>>> treeDate = new AvlTree<>();
+  AvlTree<Pair<String, LinkedList<Email>>> treeFrom = new AvlTree<>();
+  AvlTree<Pair<Long, Email>> treeId = new AvlTree<>();
 
   /**
    * Constructor de la clase la cual necesita el la ruta hacia el archivo que
