@@ -3,7 +3,7 @@ package info3.parcial2.util;
 import java.io.*;
 
 import info3.parcial2.Email;
-import info3.parcial2.structure.RedBlackTree;
+import info3.parcial2.structure.AvlTree;
 
 /**
  * Clase para leer los archivos donde se encuentran los mails
@@ -16,14 +16,14 @@ public class MailReader {
    * @return retorna una estructura de datos en la cual se encuentran contenidos los mails
    * @throws Exception
    */
-  public static RedBlackTree<Email> fileReader(String path) throws Exception {
+  public static AvlTree<Email> fileReader(String path) throws Exception {
     FileInputStream fstream = new FileInputStream(path);
     BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
 
     String strLine;
     String mail = "";
 
-    RedBlackTree<Email> treeMail = new RedBlackTree<>();
+    AvlTree<Email> treeMail = new AvlTree<>();
     
     while ((strLine = br.readLine()) != null) {
       

@@ -5,7 +5,7 @@ package info3.parcial2;
  */
 public class Email implements Comparable<Email> {
 
-  private long id = 46;
+  private long id = 46; // TODO: cambiar por una variable aleatoria
   private String from; // Remitente del mail
   private String to; // destinatario del mail
   private String date; // Fecha de envio

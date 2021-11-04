@@ -2,13 +2,15 @@ package info3.parcial2;
 
 import java.util.*;
 
-import info3.parcial2.structure.RedBlackTree;
+import info3.parcial2.structure.AvlTree;
 
 public class Main {
 
   public static void main(String[] args) {
-    RedBlackTree<Integer> tree = new RedBlackTree<Integer>();
-    try {
+    
+    /*  test N1
+     AvlTree<Integer> tree = new AvlTree<Integer>();
+       try {
       tree.insert(5);
       tree.insert(3);
       tree.insert(7);
@@ -17,18 +19,16 @@ public class Main {
       tree.remove(3);
       tree.printTree();
     } catch (Exception e) {
-      // TODO Auto-generated catch block
       e.printStackTrace();
     }
+     */
   
+      
   
     /*  try {
       MailManager mailManager = new MailManager("src/info3/parcial2/mails/mails-1.txt");
       Scanner scan = new Scanner(System.in);
       String key = "";
-      // TESTING
-      long id = 46; 
-      //
       while (!key.equals("8")) {
         System.out.println("\tMENU");
         System.out.println("1.Add mail");
