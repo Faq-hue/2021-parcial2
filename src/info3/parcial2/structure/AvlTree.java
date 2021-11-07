@@ -5,6 +5,7 @@ package info3.parcial2.structure;// AvlTree class
 // ******************PUBLIC OPERATIONS*********************
 // void insert( x )       --> Insert x
 // void remove( x )       --> Remove x
+// void inorder()
 // boolean contains( x )  --> Return true if x is present
 // boolean remove( x )    --> Return true if x was present
 // Comparable findMin( )  --> Return smallest item
@@ -389,9 +390,9 @@ public class AvlTree<AnyType extends Comparable<? super AnyType>> {
      * Innorder 
      */
 
-    void printInorder() { printInorder(root); }
+    public void printInorder() { printInorder(root); }
     
-    void printInorder(AvlNode<AnyType> node)
+    private void printInorder(AvlNode<AnyType> node)
     {
         if (node == null)
             return;
@@ -400,7 +401,7 @@ public class AvlTree<AnyType extends Comparable<? super AnyType>> {
         printInorder(node.left);
  
         // Imprimir datos del nodo
-        System.out.print(node.key + " "); //key deberia ser reemplazado por algo que muestre los datos del nodo
+        System.out.print(node.element + " "); //key deberia ser reemplazado por algo que muestre los datos del nodo
  
         // Recurcion en el hijo izquierdo
         printInorder(node.right);
@@ -411,4 +412,7 @@ public class AvlTree<AnyType extends Comparable<? super AnyType>> {
      */
     private AvlNode<AnyType> root;
 
+
 }
+
+
