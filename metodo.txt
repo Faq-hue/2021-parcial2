@@ -1,18 +1,18 @@
 Angelo 1, Facundo 2, Karen 3
 
-Agregar mails al gestor                       3
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxAgregar mails al gestorxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 
 -- ORDENAR MAILS POR ALGUN CRITERIO
-Mostrar mails ordenados por fecha             3
-Mostrar mails ordenados por remitente         2
+Mostrar mails ordenados por fechaxxxxxxxxxxxxxxxx falta retorno
+Mostrar mails ordenados por remitentexxxxxxxxxxxx falta retorno
 
 
 -- BUSQUEDAS Y HACER ALGO
-Buscar mails por remitente                    1
+Buscar mails por remitentexxxxxxxxxxxxxxxxxxxxxxx falta retorno
 Buscar mails por palabras del texto o asunto  2
-Leer mail / busqueda por id                   1   
-Borrar mails del gestor                       2
+Leer mail / busqueda por id xxxxxxxxxxxxxx opcional xxxxxxxxxxxxxxxxxx
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxBorrar mails del gestorxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 
 -- ORDENAR Y BUSCAR

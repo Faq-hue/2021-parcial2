@@ -3,6 +3,7 @@ package info3.parcial2;
 import info3.parcial2.structure.AvlTree;
 import info3.parcial2.structure.LinkedList;
 import info3.parcial2.structure.Pair;
+import info3.parcial2.util.Insert;
 import info3.parcial2.util.MailReader;
 
 public class MailManager {
@@ -28,7 +29,9 @@ public class MailManager {
    * @throws Exception
    */
   public void addMail(Email m) throws Exception {
-    //tree.insert(m);
+    long idTmp = treeId.findMax().getValor().getId() + 1;
+    m.setId(idTmp);
+    Insert.insert(m, treeId, treeDate, treeFrom);
   }
 
   /**
@@ -39,7 +42,6 @@ public class MailManager {
    */
   public void deleteMail(long id) throws Exception {
     treeId.remove(new Pair(id, null));
-
   }
 
   /**
@@ -69,7 +71,6 @@ public class MailManager {
    * @return lista de mails ordenados
    */
   public Email[] getSortedByEndDate(String hasta) {
-    treeDate.printInorder();
     return new Email[0];
   }
 
@@ -82,7 +83,7 @@ public class MailManager {
    * @return lista de mails ord-enados
    */
   public Email[] getSortedByDate(String desde, String hasta) {
-
+    
     return new Email[0];
   }
 
@@ -104,6 +105,9 @@ public class MailManager {
    */
   public Email[] getByFrom(String from) {
 
+    Pair<String,LinkedList<Email>> pairAux = treeFrom.find(new Pair(from, null));
+    LinkedList<Email> list = pairAux.getValor();
+    System.out.println(list);
     return new Email[0];
   }
 

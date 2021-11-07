@@ -5,13 +5,24 @@ import info3.parcial2.structure.AvlTree;
 public class Main {
 
   public static void main(String[] args) {
-    
+    // Test N6
+    MailManager mn = new MailManager("src/info3/parcial2/mails/mails-20.txt");
+    mn.getByFrom("britosl---@gmail.com");
+  
+    /*
+    // Test N5
+    AvlTree<Integer> tree = new AvlTree<>();
+    tree.insert(5);
+    Integer prueba = tree.find(5);
+    System.out.println(prueba);
+/*
+    /*    
     // Test N4
 
     MailManager mn= new MailManager("src/info3/parcial2/mails/mails-20.txt");
     
     mn.getSortedByDate();
-
+*/
 /*
     // Test N3
 
