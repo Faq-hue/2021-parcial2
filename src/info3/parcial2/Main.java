@@ -5,8 +5,15 @@ import info3.parcial2.structure.AvlTree;
 public class Main {
 
   public static void main(String[] args) {
+    //Test N7 faq
+    MailManager mn = new MailManager("C:\\Users\\facun\\OneDrive\\Escritorio\\2021-parcial2\\src\\info3\\parcial2\\mails\\mails-20.txt");
+
+    mn.getSortedByDate("2013-08-13 00:14","2013-08-13 00:14");
+
+
+    /*
     // Test N6
-    MailManager mn = new MailManager("src/info3/parcial2/mails/mails-20.txt");
+    
     mn.getByFrom("britosl---@gmail.com");
   
     /*
