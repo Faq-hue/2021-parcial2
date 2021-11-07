@@ -33,7 +33,7 @@ public class Pair<K extends Comparable<K>, T> implements Comparable<Pair<K, T>> 
 
   @Override
   public String toString() {
-    return "Pair [clave=" + clave + ", valor=" + valor + "]";
+    return clave +" ";
   }
 
 }

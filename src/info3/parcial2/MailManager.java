@@ -48,7 +48,10 @@ public class MailManager {
    * @return lista de mails ordenados
    */
   public Email[] getSortedByDate() {
-    return new Email[0];
+
+    treeDate.printInorder();
+
+    return null;
   }
 
   /**
