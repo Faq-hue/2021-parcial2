@@ -7,8 +7,10 @@ public class Main {
   public static void main(String[] args) {
     // Test N6
     MailManager mn = new MailManager("src/info3/parcial2/mails/mails-20.txt");
-    mn.getByFrom("britosl---@gmail.com");
-  
+    mn.getByFrom("t---@grulic.psi.unc.edu.ar");
+    //mn.getByQuery("maestro");
+
+
     /*
     // Test N5
     AvlTree<Integer> tree = new AvlTree<>();

@@ -366,25 +366,6 @@ public class AvlTree<AnyType extends Comparable<? super AnyType>> {
     return rotateWithRightChild(k1);
   }
 
-  private static class AvlNode<AnyType> {
-    // Constructors
-    AvlNode(AnyType theElement) {
-      this(theElement, null, null);
-    }
-
-    AvlNode(AnyType theElement, AvlNode<AnyType> lt, AvlNode<AnyType> rt) {
-      element = theElement;
-      left = lt;
-      right = rt;
-      height = 0;
-    }
-
-    public AnyType element; // The data in the node
-    public AvlNode<AnyType> left; // Left child
-    public AvlNode<AnyType> right; // Right child
-    int height; // Height
-  }
-
   /**
    * Innorder
    */
@@ -413,5 +394,9 @@ public class AvlTree<AnyType extends Comparable<? super AnyType>> {
    * The tree root.
    */
   private AvlNode<AnyType> root;
+
+  public AvlNode<AnyType> getRoot() {
+    return root;
+  }
 
 }

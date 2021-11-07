@@ -1,5 +1,6 @@
 package info3.parcial2;
 
+import info3.parcial2.structure.AvlNode;
 import info3.parcial2.structure.AvlTree;
 import info3.parcial2.structure.LinkedList;
 import info3.parcial2.structure.Pair;
@@ -107,7 +108,7 @@ public class MailManager {
 
     Pair<String,LinkedList<Email>> pairAux = treeFrom.find(new Pair(from, null));
     LinkedList<Email> list = pairAux.getValor();
-    System.out.println(list);
+    LinkedList.printList(list);
     return new Email[0];
   }
 
@@ -119,7 +120,25 @@ public class MailManager {
    * @return lista de mails que contienen dicha/s palabra/s
    */
   public Email[] getByQuery(String query) {
-    
+    LinkedList<Email> list = new LinkedList<>();
+    recorrido(treeId.getRoot(),query,list);
+    LinkedList.printList(list);
     return new Email[0];
+  }
+
+  public void recorrido(AvlNode<Pair<Long, Email>> node, String query, LinkedList<Email> list){
+    if (node == null)
+      return;
+
+    // Recurcion en el hijo izquierdo
+    recorrido(node.left,query,list);
+
+    // inserto los nodos a la lista si la query se encuentra en el contenido o en el asunto
+    if(node.element.getValor().getContent().contains(query) || node.element.getValor().getSubject().contains(query)){
+      list.insert(node.element.getValor(),list.zeroth());
+    }
+
+    // Recurcion en el hijo izquierdo
+    recorrido(node.right,query,list);
   }
 }
