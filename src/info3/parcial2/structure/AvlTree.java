@@ -1,4 +1,6 @@
 package info3.parcial2.structure;// AvlTree class
+
+import info3.parcial2.structure.LinkedList;
 //
 // CONSTRUCTION: with no initializer
 //
@@ -15,8 +17,6 @@ package info3.parcial2.structure;// AvlTree class
 // void printTree( )      --> Print tree in sorted order
 // ******************ERRORS********************************
 // Throws UnderflowException as appropriate
-
-import java.util.LinkedList;
 
 /**
  * Implements an AVL tree.
@@ -416,7 +416,7 @@ public class AvlTree<AnyType extends Comparable<? super AnyType>> {
  
         // Imprimir datos del nodo
         //System.out.print(node.element + " ");
-        list.zeroth(node.element);
+        
 
         // Recurcion en el hijo izquierdo
         printInorder(node.right);
@@ -427,8 +427,7 @@ public class AvlTree<AnyType extends Comparable<? super AnyType>> {
      */
     private AvlNode<AnyType> root;
 
-    LinkedList<AnyType> list = new LinkedList<>();
-
+    LinkedList<AnyType> list = new LinkedList();
 }
 
 
