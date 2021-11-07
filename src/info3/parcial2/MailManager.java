@@ -69,6 +69,7 @@ public class MailManager {
    * @return lista de mails ordenados
    */
   public Email[] getSortedByEndDate(String hasta) {
+    treeDate.printInorder();
     return new Email[0];
   }
 
@@ -91,6 +92,7 @@ public class MailManager {
    * @return lista de mails ordenados
    */
   public Email[] getSortedByFrom() {
+    treeFrom.printInorder();
     return new Email[0];
   }
 

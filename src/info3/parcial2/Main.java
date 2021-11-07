@@ -8,7 +8,7 @@ public class Main {
     
     // Test N4
 
-    MailManager mn= new MailManager("C:\\Users\\facun\\OneDrive\\Escritorio\\2021-parcial2\\src\\info3\\parcial2\\mails\\mails-20.txt");
+    MailManager mn= new MailManager("src/info3/parcial2/mails/mails-20.txt");
     
     mn.getSortedByDate();
 
