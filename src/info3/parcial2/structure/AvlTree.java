@@ -16,6 +16,8 @@ package info3.parcial2.structure;// AvlTree class
 // ******************ERRORS********************************
 // Throws UnderflowException as appropriate
 
+import java.util.LinkedList;
+
 /**
  * Implements an AVL tree.
  * Note that all "matching" is based on the compareTo method.
@@ -386,11 +388,23 @@ public class AvlTree<AnyType extends Comparable<? super AnyType>> {
         int height;       // Height
     }
 
-    /**
-     * Innorder 
-     */
+    
 
-    public void printInorder() { printInorder(root); }
+    public LinkedList<AnyType> getList() {
+        return list;
+    }
+
+    public void setList(LinkedList<AnyType> list) {
+        this.list = list;
+    }
+
+    /**
+     * Inorder 
+     */
+    public void printInorder() {
+    
+        printInorder(root);
+    }
     
     private void printInorder(AvlNode<AnyType> node)
     {
@@ -401,8 +415,9 @@ public class AvlTree<AnyType extends Comparable<? super AnyType>> {
         printInorder(node.left);
  
         // Imprimir datos del nodo
-        System.out.print(node.element + " "); //key deberia ser reemplazado por algo que muestre los datos del nodo
- 
+        //System.out.print(node.element + " ");
+        list.zeroth(node.element);
+
         // Recurcion en el hijo izquierdo
         printInorder(node.right);
     }
@@ -412,6 +427,7 @@ public class AvlTree<AnyType extends Comparable<? super AnyType>> {
      */
     private AvlNode<AnyType> root;
 
+    LinkedList<AnyType> list = new LinkedList<>();
 
 }
 
