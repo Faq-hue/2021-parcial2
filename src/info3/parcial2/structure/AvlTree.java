@@ -386,6 +386,27 @@ public class AvlTree<AnyType extends Comparable<? super AnyType>> {
     }
 
     /**
+     * Innorder 
+     */
+
+    void printInorder() { printInorder(root); }
+    
+    void printInorder(AvlNode<AnyType> node)
+    {
+        if (node == null)
+            return;
+ 
+        // Recurcion en el hijo izquierdo
+        printInorder(node.left);
+ 
+        // Imprimir datos del nodo
+        System.out.print(node.key + " "); //key deberia ser reemplazado por algo que muestre los datos del nodo
+ 
+        // Recurcion en el hijo izquierdo
+        printInorder(node.right);
+    }
+
+    /**
      * The tree root.
      */
     private AvlNode<AnyType> root;
