@@ -379,9 +379,9 @@ public class AvlTree<AnyType extends Comparable<? super AnyType>> {
       height = 0;
     }
 
-    AnyType element; // The data in the node
-    AvlNode<AnyType> left; // Left child
-    AvlNode<AnyType> right; // Right child
+    public AnyType element; // The data in the node
+    public AvlNode<AnyType> left; // Left child
+    public AvlNode<AnyType> right; // Right child
     int height; // Height
   }
 

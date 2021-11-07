@@ -119,7 +119,7 @@ public class MailManager {
    * @return lista de mails que contienen dicha/s palabra/s
    */
   public Email[] getByQuery(String query) {
-
+    
     return new Email[0];
   }
 }
