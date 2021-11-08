@@ -5,7 +5,7 @@ public class Main {
 
   public static void main(String[] args) {
     //Test N7 faq
-    MailManager mn = new MailManager("C:\\Users\\facun\\OneDrive\\Escritorio\\2021-parcial2\\src\\info3\\parcial2\\mails\\mails-20.txt");
+    MailManager mn = new MailManager("");
 
     mn.getSortedByDate("2013-08-13 00:14","2013-08-13 00:14");
 
