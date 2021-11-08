@@ -85,7 +85,18 @@ public class MailManager {
    */
   public Email[] getSortedByDate(String desde, String hasta) {
     
-    return new Email[0];
+    LinkedList<Pair<String, LinkedList<Email>>> ll = new LinkedList<>();
+
+    for (int i = 0; i < ll.listSize(); i++) {
+      
+      if (desde.equals(treeDate.getList().first().getValor())) {
+        ll.zeroth(treeDate.getList().getValor());
+        System.out.println("Funca?");
+      }
+
+    }
+
+    return null;
   }
 
   /**

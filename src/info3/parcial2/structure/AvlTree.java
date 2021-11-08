@@ -6,7 +6,7 @@ package info3.parcial2.structure;// AvlTree class
 // ******************PUBLIC OPERATIONS*********************
 // void insert( x )       --> Insert x
 // void remove( x )       --> Remove x
-// void inorder()
+// void inorder()         --> Print in order the elements of the tree
 // boolean contains( x )  --> Return true if x is present
 // boolean remove( x )    --> Return true if x was present
 // Comparable findMin( )  --> Return smallest item
@@ -28,6 +28,16 @@ import info3.parcial2.structure.*;
 public class AvlTree<AnyType extends Comparable<? super AnyType>> {
 
   public LinkedList<AnyType> list = new LinkedList<>();
+
+  public LinkedList<AnyType> getList() {
+    list.makeEmpty();
+    this.printInorder();
+    return list;
+  }
+
+  public void setList(LinkedList<AnyType> list) {
+    this.list = list;
+  }
 
   /**
    * Construct the tree.
@@ -371,6 +381,7 @@ public class AvlTree<AnyType extends Comparable<? super AnyType>> {
    */
 
   public void printInorder() {
+    list.makeEmpty();
     printInorder(root);
   }
 
