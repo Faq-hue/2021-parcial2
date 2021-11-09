@@ -2,8 +2,20 @@ package info3.parcial2.util;
 
 import info3.parcial2.structure.*;
 import info3.parcial2.*;
-
+/**
+ * Clase que permite insertar un mail a los distintos arboles usados en 
+ * el MailReader
+ * ******************PUBLIC OPERATIONS*********************
+ * insert(Mail mail) --> Inserta un mail en el arbol
+ * ********************************************************
+ */
 public class Insert {
+  /**
+   * Inserta un mail en los distintos areboles
+   * @param email
+   * @param treeId
+   * @param trees
+   */
   public static void insert(Email email, AvlTree<Pair<Long, Email>> treeId,
       AvlTree<Pair<String, LinkedList<Email>>>... trees) {
     LinkedList<Email> list = new LinkedList<>();

@@ -49,7 +49,7 @@ public class LinkedList<AnyType> {
    */
   public void toArray(LinkedList<AnyType> theList, AnyType[] arr) {
     LinkedListIterator<AnyType> itr;
-
+    
     int i = 0;
     for (itr = theList.first(); itr.isValid(); itr.advance()) {
       arr[i] = itr.retrieve();
