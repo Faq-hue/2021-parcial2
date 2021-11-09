@@ -377,9 +377,8 @@ public class AvlTree<AnyType extends Comparable<? super AnyType>> {
   }
 
   /**
-   * Innorder
+   * genera una lista de tipo anytype con los elementos del arbol
    */
-
   public void printInorder() {
     list.makeEmpty();
     printInorder(root);

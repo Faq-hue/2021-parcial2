@@ -50,7 +50,7 @@ public class MailManager {
   public Email[] getSortedByDate() {
 
     this.treeDate.printInorder();
-
+    // TODO
     return null;
   }
 
@@ -65,23 +65,27 @@ public class MailManager {
 
     getSortedByIniDate(treeId.getRoot(), desde, list);
 
-    return new Email[0];
+    Email[] emails = new Email[LinkedList.listSize(list)];
+    list.toArray(list, emails);
+
+    return emails;
   }
 
-  private void getSortedByIniDate(AvlNode<Pair<Long, Email>> node, String desde, LinkedList<Email> list){
+  private void getSortedByIniDate(AvlNode<Pair<Long, Email>> node, String desde, LinkedList<Email> list) {
 
-    if (node == null) return;
+    if (node == null)
+      return;
 
     // Recurcion en el hijo izquierdo
-    getSortedByIniDate(node.left,desde,list);
+    getSortedByIniDate(node.left, desde, list);
 
     // inserto los nodos a la lista si la date es mayor al desde
-    if(node.element.getValor().getDate().compareTo(desde) >= 0 ){
-      list.insert(node.element.getValor(),list.zeroth());
+    if (node.element.getValor().getDate().compareTo(desde) >= 0) {
+      list.insert(node.element.getValor(), list.zeroth());
     }
 
     // Recurcion en el hijo izquierdo
-    getSortedByIniDate(node.right,desde,list);
+    getSortedByIniDate(node.right, desde, list);
 
   }
 
@@ -96,23 +100,27 @@ public class MailManager {
 
     getSortedByEndDate(treeId.getRoot(), hasta, list);
 
-    return new Email[0];
+    Email[] emails = new Email[LinkedList.listSize(list)];
+    list.toArray(list, emails);
+
+    return emails;
   }
 
-  private void getSortedByEndDate(AvlNode<Pair<Long, Email>> node, String hasta, LinkedList<Email> list){
+  private void getSortedByEndDate(AvlNode<Pair<Long, Email>> node, String hasta, LinkedList<Email> list) {
 
-    if (node == null) return;
+    if (node == null)
+      return;
 
     // Recurcion en el hijo izquierdo
-    getSortedByIniDate(node.left,hasta,list);
+    getSortedByIniDate(node.left, hasta, list);
 
     // inserto los nodos a la lista si la date es mayor al desde
-    if(node.element.getValor().getDate().compareTo(hasta) <= 0 ){
-      list.insert(node.element.getValor(),list.zeroth());
+    if (node.element.getValor().getDate().compareTo(hasta) <= 0) {
+      list.insert(node.element.getValor(), list.zeroth());
     }
 
     // Recurcion en el hijo izquierdo
-    getSortedByIniDate(node.right,hasta,list);
+    getSortedByIniDate(node.right, hasta, list);
 
   }
 
@@ -125,32 +133,34 @@ public class MailManager {
    * @return lista de mails ord-enados
    */
   public Email[] getSortedByDate(String desde, String hasta) {
-
     LinkedList<Email> list = new LinkedList<>();
-
+    
     getSortedByDate2(treeId.getRoot(), desde, hasta, list);
-
     LinkedList.printList(list);
 
-    return null;
+    Email[] emails = new Email[LinkedList.listSize(list)];
+    list.toArray(list, emails);
+
+    return emails;
   }
 
-  private void getSortedByDate2(AvlNode<Pair<Long, Email>> node, String desde, String hasta, LinkedList<Email> list){
-    if (node == null) return;
+  private void getSortedByDate2(AvlNode<Pair<Long, Email>> node, String desde, String hasta, LinkedList<Email> list) {
+    if (node == null)
+      return;
 
     // Recurcion en el hijo izquierdo
-    getSortedByDate2(node.left,desde,hasta,list);
+    getSortedByDate2(node.left, desde, hasta, list);
 
     // inserto los nodos a la lista si la date se encuentra entre desde y hasta
-    if(node.element.getValor().getDate().compareTo(desde) >= 0 && node.element.getValor().getDate().compareTo(hasta) <= 0){
-      list.insert(node.element.getValor(),list.zeroth());
+    if (node.element.getValor().getDate().compareTo(desde) >= 0
+        && node.element.getValor().getDate().compareTo(hasta) <= 0) {
+      list.insert(node.element.getValor(), list.zeroth());
     }
 
     // Recurcion en el hijo izquierdo
-    getSortedByDate2(node.right,desde,hasta,list);
+    getSortedByDate2(node.right, desde, hasta, list);
 
   }
-
 
   /**
    * Devuelve una lista de mails ordenados por Remitente
@@ -158,7 +168,8 @@ public class MailManager {
    * @return lista de mails ordenados
    */
   public Email[] getSortedByFrom() {
-    treeFrom.printInorder();
+    LinkedList<Pair<String,LinkedList<Email>>> list = treeFrom.getList();
+    //TODO
     return new Email[0];
   }
 
@@ -170,10 +181,12 @@ public class MailManager {
    */
   public Email[] getByFrom(String from) {
 
-    Pair<String,LinkedList<Email>> pairAux = treeFrom.find(new Pair(from, null));
+    Pair<String, LinkedList<Email>> pairAux = treeFrom.find(new Pair(from, null));
     LinkedList<Email> list = pairAux.getValor();
     LinkedList.printList(list);
-    return new Email[0];
+    Email[] emails = new Email[LinkedList.listSize(list)];
+    list.toArray(list, emails);
+    return emails;
   }
 
   /**
@@ -185,24 +198,27 @@ public class MailManager {
    */
   public Email[] getByQuery(String query) {
     LinkedList<Email> list = new LinkedList<>();
-    recorrido(treeId.getRoot(),query,list);
+    recorrido(treeId.getRoot(), query, list);
     LinkedList.printList(list);
-    return new Email[0];
+    Email[] emails = new Email[LinkedList.listSize(list)];
+    list.toArray(list, emails);
+    return emails;
   }
 
-  public void recorrido(AvlNode<Pair<Long, Email>> node, String query, LinkedList<Email> list){
+  public void recorrido(AvlNode<Pair<Long, Email>> node, String query, LinkedList<Email> list) {
     if (node == null)
       return;
 
     // Recurcion en el hijo izquierdo
-    recorrido(node.left,query,list);
+    recorrido(node.left, query, list);
 
-    // inserto los nodos a la lista si la query se encuentra en el contenido o en el asunto
-    if(node.element.getValor().getContent().contains(query) || node.element.getValor().getSubject().contains(query)){
-      list.insert(node.element.getValor(),list.zeroth());
+    // inserto los nodos a la lista si la query se encuentra en el contenido o en el
+    // asunto
+    if (node.element.getValor().getContent().contains(query) || node.element.getValor().getSubject().contains(query)) {
+      list.insert(node.element.getValor(), list.zeroth());
     }
 
     // Recurcion en el hijo izquierdo
-    recorrido(node.right,query,list);
+    recorrido(node.right, query, list);
   }
 }
