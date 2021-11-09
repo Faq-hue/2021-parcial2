@@ -1,9 +1,6 @@
 package info3.parcial2;
 
-import info3.parcial2.structure.AvlNode;
-import info3.parcial2.structure.AvlTree;
-import info3.parcial2.structure.LinkedList;
-import info3.parcial2.structure.Pair;
+import info3.parcial2.structure.*;
 import info3.parcial2.util.Insert;
 import info3.parcial2.util.MailReader;
 
@@ -52,7 +49,7 @@ public class MailManager {
    */
   public Email[] getSortedByDate() {
 
-    treeDate.printInorder();
+    this.treeDate.printInorder();
 
     return null;
   }
@@ -63,7 +60,29 @@ public class MailManager {
    * @return lista de mails ordenados
    */
   public Email[] getSortedByIniDate(String desde) {
+
+    LinkedList<Email> list = new LinkedList<>();
+
+    getSortedByIniDate(treeId.getRoot(), desde, list);
+
     return new Email[0];
+  }
+
+  private void getSortedByIniDate(AvlNode<Pair<Long, Email>> node, String desde, LinkedList<Email> list){
+
+    if (node == null) return;
+
+    // Recurcion en el hijo izquierdo
+    getSortedByIniDate(node.left,desde,list);
+
+    // inserto los nodos a la lista si la date es mayor al desde
+    if(node.element.getValor().getDate().compareTo(desde) >= 0 ){
+      list.insert(node.element.getValor(),list.zeroth());
+    }
+
+    // Recurcion en el hijo izquierdo
+    getSortedByIniDate(node.right,desde,list);
+
   }
 
   /**
@@ -72,7 +91,29 @@ public class MailManager {
    * @return lista de mails ordenados
    */
   public Email[] getSortedByEndDate(String hasta) {
+
+    LinkedList<Email> list = new LinkedList<>();
+
+    getSortedByEndDate(treeId.getRoot(), hasta, list);
+
     return new Email[0];
+  }
+
+  private void getSortedByEndDate(AvlNode<Pair<Long, Email>> node, String hasta, LinkedList<Email> list){
+
+    if (node == null) return;
+
+    // Recurcion en el hijo izquierdo
+    getSortedByIniDate(node.left,hasta,list);
+
+    // inserto los nodos a la lista si la date es mayor al desde
+    if(node.element.getValor().getDate().compareTo(hasta) <= 0 ){
+      list.insert(node.element.getValor(),list.zeroth());
+    }
+
+    // Recurcion en el hijo izquierdo
+    getSortedByIniDate(node.right,hasta,list);
+
   }
 
   /**
@@ -84,20 +125,32 @@ public class MailManager {
    * @return lista de mails ord-enados
    */
   public Email[] getSortedByDate(String desde, String hasta) {
-    
-    LinkedList<Pair<String, LinkedList<Email>>> ll = new LinkedList<>();
 
-    for (int i = 0; i < ll.listSize(); i++) {
-      
-      if (desde.equals(treeDate.getList().first().getValor())) {
-        ll.zeroth(treeDate.getList().getValor());
-        System.out.println("Funca?");
-      }
+    LinkedList<Email> list = new LinkedList<>();
 
-    }
+    getSortedByDate2(treeId.getRoot(), desde, hasta, list);
+
+    LinkedList.printList(list);
 
     return null;
   }
+
+  private void getSortedByDate2(AvlNode<Pair<Long, Email>> node, String desde, String hasta, LinkedList<Email> list){
+    if (node == null) return;
+
+    // Recurcion en el hijo izquierdo
+    getSortedByDate2(node.left,desde,hasta,list);
+
+    // inserto los nodos a la lista si la date se encuentra entre desde y hasta
+    if(node.element.getValor().getDate().compareTo(desde) >= 0 && node.element.getValor().getDate().compareTo(hasta) <= 0){
+      list.insert(node.element.getValor(),list.zeroth());
+    }
+
+    // Recurcion en el hijo izquierdo
+    getSortedByDate2(node.right,desde,hasta,list);
+
+  }
+
 
   /**
    * Devuelve una lista de mails ordenados por Remitente
