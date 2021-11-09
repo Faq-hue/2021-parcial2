@@ -1,15 +1,32 @@
 package info3.parcial2;
 
+import info3.parcial2.structure.LinkedList;
 
 public class Main {
 
   public static void main(String[] args) {
-    //Test N7 faq
+  
+    // Test N8 angelo
+    System.out.println("Test N8 angelo");
+    LinkedList<Integer> list = new LinkedList<>();
+    list.insert(1,list.zeroth());
+    list.insert(2, list.zeroth());
+    list.insert(3, list.zeroth());
+
+    Integer[] array = new Integer[LinkedList.listSize(list)];
+    list.toArray(list,array);
+    
+    for (Integer number : array) {
+      System.out.println(number);
+    }
+
+
+   /* //Test N7 faq
     MailManager mn = new MailManager("");
 
     mn.getSortedByDate("2013-08-13 00:14","2013-08-13 00:14");
 
-
+*/
     /*
     // Test N6
     MailManager mn = new MailManager("src/info3/parcial2/mails/mails-20.txt");
