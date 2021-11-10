@@ -1,6 +1,5 @@
 package info3.parcial2.structure;
 
-import java.util.ArrayList;
 
 // LinkedList class
 //

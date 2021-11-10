@@ -174,14 +174,14 @@ public class MailManager {
     LinkedList<Email> listtmp = new LinkedList<>();
     Email[] emails = new Email[LinkedList.listSize(treeId.getList())];
 
-    Pair<String, LinkedList<Email>>[] raro = new Pair[LinkedList.listSize(list)];
+    Pair<String, LinkedList<Email>>[] pares = new Pair[LinkedList.listSize(list)];
 
-    list.toArray(list, raro);
+    list.toArray(list, pares);
 
-    for (int i = 0; i < raro.length; i++) {
+    for (int i = 0; i < pares.length; i++) {
 
-      Email[] tmp = new Email[LinkedList.listSize(raro[0].getValor())];
-      LinkedList<Email> tmp2 = raro[i].getValor();
+      Email[] tmp = new Email[LinkedList.listSize(pares[0].getValor())];
+      LinkedList<Email> tmp2 = pares[i].getValor();
       tmp2.toArray(tmp2, tmp);
       for (int k = 0; k < tmp.length; k++) {
         listtmp.insert(tmp[k], listtmp.zeroth());
@@ -219,19 +219,19 @@ public class MailManager {
    */
   public Email[] getByQuery(String query) {
     LinkedList<Email> list = new LinkedList<>();
-    recorrido(treeId.getRoot(), query, list);
+    getByQuery(treeId.getRoot(), query, list);
     LinkedList.printList(list);
     Email[] emails = new Email[LinkedList.listSize(list)];
     list.toArray(list, emails);
     return emails;
   }
 
-  private void recorrido(AvlNode<Pair<Long, Email>> node, String query, LinkedList<Email> list) {
+  private void getByQuery(AvlNode<Pair<Long, Email>> node, String query, LinkedList<Email> list) {
     if (node == null)
       return;
 
     // Recurcion en el hijo izquierdo
-    recorrido(node.left, query, list);
+    getByQuery(node.left, query, list);
 
     // inserto los nodos a la lista si la query se encuentra en el contenido o en el
     // asunto
@@ -240,6 +240,7 @@ public class MailManager {
     }
 
     // Recurcion en el hijo izquierdo
-    recorrido(node.right, query, list);
+    getByQuery(node.right, query, list);
   }
 }
+  

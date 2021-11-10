@@ -8,6 +8,9 @@ import info3.parcial2.structure.LinkedList;
 public class Main {
 
   public static void main(String[] args) {
+    
+    
+    
     /*
      * // Test N8 angelo System.out.println("Test N8 angelo"); LinkedList<Integer>
      * list = new LinkedList<>(); list.insert(1,list.zeroth()); list.insert(2,

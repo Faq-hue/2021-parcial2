@@ -17,7 +17,6 @@ package info3.parcial2.structure;// AvlTree class
 // ******************ERRORS********************************
 // Throws UnderflowException as appropriate
 
-import info3.parcial2.structure.*;
 
 /**
  * Implements an AVL tree. Note that all "matching" is based on the compareTo
@@ -27,7 +26,7 @@ import info3.parcial2.structure.*;
  */
 public class AvlTree<AnyType extends Comparable<? super AnyType>> {
 
-  public LinkedList<AnyType> list = new LinkedList<>();
+  private LinkedList<AnyType> list = new LinkedList<>();
 
   public LinkedList<AnyType> getList() {
     list.makeEmpty();
