@@ -13,7 +13,7 @@ public class Main {
       MailManager mailManager = new MailManager("src/info3/parcial2/mails/mails-1.txt");
       Scanner scan = new Scanner(System.in);
       String key = "";
-      while (!key.equals("11")) {
+      while (!key.equals("10")) {
         System.out.println("-------------MENU---------------");
         System.out.println("|   1.Add mail                 |");
         System.out.println("|   2.Delete mail              |");
@@ -125,7 +125,9 @@ public class Main {
           }
           break;
 
-          case "10": break;
+          case "10":
+            System.out.println("Exit");
+            break;
 
 
         default:
