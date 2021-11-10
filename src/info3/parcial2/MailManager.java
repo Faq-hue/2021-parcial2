@@ -40,11 +40,11 @@ public class MailManager {
    */
   public void deleteMail(long id) throws Exception {
     Email mail = new Email();
-    Pair<Long,Email> pair= treeId.find(new Pair(id, null));
+    Pair<Long, Email> pair = treeId.find(new Pair(id, null));
     mail = (Email) pair.getValor();
     treeId.remove(new Pair(id, null));
-    treeDate.remove(new Pair(mail.getDate(),null));
-    treeFrom.remove(new Pair(mail.getFrom(),null));
+    treeDate.remove(new Pair(mail.getDate(), null));
+    treeFrom.remove(new Pair(mail.getFrom(), null));
   }
 
   /**
@@ -171,8 +171,27 @@ public class MailManager {
    */
   public Email[] getSortedByFrom() {
     LinkedList<Pair<String, LinkedList<Email>>> list = treeFrom.getList();
-    // TODO
-    return new Email[0];
+    LinkedList<Email> listtmp = new LinkedList<>();
+    Email[] emails = new Email[LinkedList.listSize(treeId.getList())];
+
+    Pair<String, LinkedList<Email>>[] raro = new Pair[LinkedList.listSize(list)];
+
+    list.toArray(list, raro);
+
+    for (int i = 0; i < raro.length; i++) {
+
+      Email[] tmp = new Email[LinkedList.listSize(raro[0].getValor())];
+      LinkedList<Email> tmp2 = raro[i].getValor();
+      tmp2.toArray(tmp2, tmp);
+      for (int k = 0; k < tmp.length; k++) {
+        listtmp.insert(tmp[k], listtmp.zeroth());
+      }
+
+    }
+
+    listtmp.toArray(listtmp, emails);
+
+    return emails;
   }
 
   /**
@@ -207,7 +226,7 @@ public class MailManager {
     return emails;
   }
 
-  public void recorrido(AvlNode<Pair<Long, Email>> node, String query, LinkedList<Email> list) {
+  private void recorrido(AvlNode<Pair<Long, Email>> node, String query, LinkedList<Email> list) {
     if (node == null)
       return;
 

@@ -67,10 +67,9 @@ public class Main {
         System.out.println("|   4.Get view by sender       |");
         System.out.println("|   5.Get view by destinatary  |");
         System.out.println("|   6.Search                   |");
-        System.out.println("|   7.Get view general         |");
-        System.out.println("|   8.Search                   |");
-        System.out.println("|   9.Search sender            |");
-        System.out.println("|   10.filter by date          |");
+        System.out.println("|   7.Search                   |");
+        System.out.println("|   8.Search sender            |");
+        System.out.println("|   9.filter by date           |");
         System.out.println("|   11.Exit                    |");
         System.out.println("--------------------------------");
         System.out.print("| selection:");
