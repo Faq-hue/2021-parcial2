@@ -204,7 +204,6 @@ public class MailManager {
 
     Pair<String, LinkedList<Email>> pairAux = treeFrom.find(new Pair(from, null));
     LinkedList<Email> list = pairAux.getValor();
-    LinkedList.printList(list);
     Email[] emails = new Email[LinkedList.listSize(list)];
     list.toArray(list, emails);
     return emails;
