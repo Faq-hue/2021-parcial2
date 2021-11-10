@@ -39,7 +39,12 @@ public class MailManager {
    * @throws Exception
    */
   public void deleteMail(long id) throws Exception {
+    Email mail = new Email();
+    Pair<Long,Email> pair= treeId.find(new Pair(id, null));
+    mail = (Email) pair.getValor();
     treeId.remove(new Pair(id, null));
+    treeDate.remove(new Pair(mail.getDate(),null));
+    treeFrom.remove(new Pair(mail.getFrom(),null));
   }
 
   /**
@@ -48,10 +53,7 @@ public class MailManager {
    * @return lista de mails ordenados
    */
   public Email[] getSortedByDate() {
-
-    this.treeDate.printInorder();
-    // TODO
-    return null;
+    return getSortedByIniDate("0000-00-00 00:00");
   }
 
   /**
@@ -134,7 +136,7 @@ public class MailManager {
    */
   public Email[] getSortedByDate(String desde, String hasta) {
     LinkedList<Email> list = new LinkedList<>();
-    
+
     getSortedByDate2(treeId.getRoot(), desde, hasta, list);
     LinkedList.printList(list);
 
@@ -168,8 +170,8 @@ public class MailManager {
    * @return lista de mails ordenados
    */
   public Email[] getSortedByFrom() {
-    LinkedList<Pair<String,LinkedList<Email>>> list = treeFrom.getList();
-    //TODO
+    LinkedList<Pair<String, LinkedList<Email>>> list = treeFrom.getList();
+    // TODO
     return new Email[0];
   }
 

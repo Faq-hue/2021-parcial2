@@ -59,7 +59,7 @@ public class Main {
       MailManager mailManager = new MailManager("src/info3/parcial2/mails/mails-1.txt");
       Scanner scan = new Scanner(System.in);
       String key = "";
-      while (!key.equals("8")) {
+      while (!key.equals("11")) {
         System.out.println("-------------MENU---------------");
         System.out.println("|   1.Add mail                 |");
         System.out.println("|   2.Delete mail              |");
@@ -67,7 +67,11 @@ public class Main {
         System.out.println("|   4.Get view by sender       |");
         System.out.println("|   5.Get view by destinatary  |");
         System.out.println("|   6.Search                   |");
-        System.out.println("|   8.Exit                     |");
+        System.out.println("|   7.Get view general         |");
+        System.out.println("|   8.Search                   |");
+        System.out.println("|   9.Search sender            |");
+        System.out.println("|   10.filter by date          |");
+        System.out.println("|   11.Exit                    |");
         System.out.println("--------------------------------");
         System.out.print("| selection:");
         key = scan.nextLine();
@@ -88,6 +92,9 @@ public class Main {
           break;
 
         case "2":
+          System.out.println("Enter the id of the mail to delete: ");
+          long id = scan.nextInt();
+          mailManager.deleteMail(id);
           break;
 
         case "3":
@@ -99,7 +106,18 @@ public class Main {
           break;
 
         case "5":
+          Email[] emails = mailManager.getSortedByFrom();
+          System.out.println(emails[0]);
+          break;
+        case "6":
 
+          break;
+        case "7":
+
+          break;
+        case "8":
+          System.out.println("Enter the word to search: ");
+          mailManager.getByQuery(scan.nextLine());
           break;
 
         default:
