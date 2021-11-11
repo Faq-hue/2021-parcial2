@@ -179,8 +179,7 @@ public class MailManager {
     list.toArray(list, pares);
 
     for (int i = 0; i < pares.length; i++) {
-
-      Email[] tmp = new Email[LinkedList.listSize(pares[0].getValor())];
+      Email[] tmp = new Email[LinkedList.listSize(pares[i].getValor())];
       LinkedList<Email> tmp2 = pares[i].getValor();
       tmp2.toArray(tmp2, tmp);
       for (int k = 0; k < tmp.length; k++) {
@@ -219,7 +218,6 @@ public class MailManager {
   public Email[] getByQuery(String query) {
     LinkedList<Email> list = new LinkedList<>();
     getByQuery(treeId.getRoot(), query, list);
-    LinkedList.printList(list);
     Email[] emails = new Email[LinkedList.listSize(list)];
     list.toArray(list, emails);
     return emails;
@@ -235,7 +233,10 @@ public class MailManager {
     // inserto los nodos a la lista si la query se encuentra en el contenido o en el
     // asunto
     if (node.element.getValor().getContent().contains(query) || node.element.getValor().getSubject().contains(query)) {
-      list.insert(node.element.getValor(), list.zeroth());
+      if((list.find(node.element.getValor()) != null)){
+        list.insert(node.element.getValor(), list.zeroth());
+      }
+
     }
 
     // Recurcion en el hijo izquierdo
